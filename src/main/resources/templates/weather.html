@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Pogodynka</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+
+<form class="align-items-center" th:action="@{/city}" th:object="${city}" method="post">
+    <div class="col-md-4 offset-md-4">
+        <h1>Pogodynka</h1>
+        <label for="inputCity" class="form-label label-class">Podaj miasto</label>
+        <input type="text" class="form-control g-start-2" id="inputCity" th:field="*{city}">
+        <button type="submit" class="btn btn-primary btn-search">Znajdź pogodę</button>
+    </div>
+</form>
+<br/>
+<div class="col-md-4 offset-md-4">
+    <table class="table table-striped table-success table-style">
+        <tr><p th:each="weather: ${weatherCity}"></p></tr>
+        <tr>
+            <td>Miejscowość:</td>
+            <td th:text="${weatherCity.getName()}"></td>
+        </tr>
+        <tr>
+            <td>Temperatura:</td>
+            <td th:text="${weatherCity.getMain().getTemp()+' &#8451'}"></td>
+        </tr>
+        <tr>
+            <td>Temperatura min:</td>
+            <td th:text="${weatherCity.getMain().getTempMin()+' &#8451'}"></td>
+        </tr>
+        <tr>
+            <td>Temperatura max:</td>
+            <td th:text="${weatherCity.getMain().getTempMax()+' &#8451'}"></td>
+        </tr>
+        <tr>
+            <td>Ciśnienie:</td>
+            <td th:text="${weatherCity.getMain().getPressure()+' hPa'}"></td>
+        </tr>
+        <tr>
+            <td>Prędkość wiatru:</td>
+            <td th:text="${weatherCity.getWind().getSpeed()+' m/s'}"></td>
+        </tr>
+        <tr>
+            <td>Wilgotność:</td>
+            <td th:text="${weatherCity.getMain().getHumidity()+' %'}"></td>
+        </tr>
+    </table>
+    <div class="text-center">
+        <img class="rounded" th:src="${weatherIcon}"/>
+    </div>
+</div>
+
+</body>
+</html>
