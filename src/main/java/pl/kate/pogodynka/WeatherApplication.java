@@ -1,13 +1,13 @@
-package com.example.pogodynka;
+package pl.kate.pogodynka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PogApplication {
+public class WeatherApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(PogApplication.class, args);
+        SpringApplication.run(WeatherApplication.class, args);
     }
 
 }

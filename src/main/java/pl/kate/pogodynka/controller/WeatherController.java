@@ -1,15 +1,14 @@
-package com.example.pogodynka;
+package pl.kate.pogodynka.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import pl.kate.pogodynka.service.WeatherService;
 
 @Controller
-@RequestMapping({"/"})
 public class WeatherController {
 
     private WeatherService weatherService;
@@ -22,7 +21,7 @@ public class WeatherController {
     @GetMapping
     public String gerWeather(Model model) {
         model.addAttribute("weatherCity", weatherService.getWeatherForCity());
-        model.addAttribute("weatherIcon", weatherService.getImage());
+        model.addAttribute("weatherIcon", weatherService.getIcon());
         model.addAttribute("city", new WeatherService());
         return "weather";
     }

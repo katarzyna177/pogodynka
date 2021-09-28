@@ -1,5 +1,5 @@
 
-package com.example.pogodynka.model;
+package pl.kate.pogodynka.model;
 
 import com.fasterxml.jackson.annotation.*;
 import lombok.Data;

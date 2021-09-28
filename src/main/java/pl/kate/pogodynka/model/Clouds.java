@@ -1,5 +1,5 @@
 
-package com.example.pogodynka.model;
+package pl.kate.pogodynka.model;
 
 import com.fasterxml.jackson.annotation.*;
 import lombok.Data;
@@ -10,23 +10,14 @@ import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-        "id",
-        "main",
-        "description",
-        "icon"
+        "all"
 })
 @Generated("jsonschema2pojo")
 @Data
-public class Weather {
+public class Clouds {
 
-    @JsonProperty("id")
-    private Integer id;
-    @JsonProperty("main")
-    private String main;
-    @JsonProperty("description")
-    private String description;
-    @JsonProperty("icon")
-    private String icon;
+    @JsonProperty("all")
+    private Integer all;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 

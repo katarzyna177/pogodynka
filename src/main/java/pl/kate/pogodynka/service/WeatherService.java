@@ -1,7 +1,7 @@
-package com.example.pogodynka;
+package pl.kate.pogodynka.service;
 
 
-import com.example.pogodynka.model.WeatherForCity;
+import pl.kate.pogodynka.model.WeatherForCity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -29,7 +29,7 @@ public class WeatherService {
         return weather;
     }
 
-    public String getImage() {
+    public String getIcon() {
         String iconName = this.getWeatherForCity().getWeather().get(0).getIcon();
         getWeatherForCity().setImage("http://openweathermap.org/img/wn/" + iconName + "@2x.png");
         String imgUrl ="http://openweathermap.org/img/wn/" + iconName + "@2x.png";
